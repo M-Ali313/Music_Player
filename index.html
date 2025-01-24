@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K*+Y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK10nMGCdVK+iQrJ7lzPJQd1w" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player</title>
+</head>
+<body>
+    
+    <div class="container active">
+        <div class="top">
+            <i class="fas fa-bars menu-bat"></i>
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="cover-image"></div>
+        <div class="player-body"></div>
+
+        <div class="list-wrapper">
+            <table class="list" id="playlist">
+                 <tr class="song">
+                    <td class="no">
+                        <h5>1</h5>
+                    </td>
+                    <td class="title">
+                        <h5>Song Title</h5>
+                    </td>
+                    <td class="lenght">
+                        <h5>2:03</h5>
+                    </td>
+                    <td>
+                        <i class="fas fa-heart"></i>
+                    </td>
+                 </tr>
+            </table>
+        </div>
+        
+            <div class="info">
+                <h2>song title</h2>
+                <h3>artist</h3>
+            </div>
+
+            <div class="controls">
+                <i class="fas fa-backward" id="prey"></i>
+                <i class="fas fa-play" id="playpause"></i>
+                <i class="fas fa-forward" id="next"></i>
+
+            </div>
+
+        <p class="current-song-title">song title</p>
+    </div>
+
+    <script src="design.js"></script>
+</body>
+</html>
