@@ -29,7 +29,9 @@ const songs = [
 ]
 const playlistContainer = document.querySelector('#playlist'),
 infoWrapper = document.querySelector(".info"),
-coverImage = document.querySelector('.cover-image')
+coverImage = document.querySelector('.cover-image'),
+currentSongTitle = document.querySelector('.current-song-title'),
+currentFavourite = document.querySelector('#current-favourite')
 
 function init(){
     updatePlaylist(songs)
@@ -104,8 +106,80 @@ function loadSong(num){
         <h2>${songs[num].title}</h2>
         <h3>${songs[num].artist}</h3>
     `
+    currentSongTitle.innerHTML = songs[num].title
 
     // change the cover image
     coverImage.style.backgroundImage = `url(data/${songs[num].img_src})`
+
+    // add src of current song to audio variable
+    audio.src = `data/${songs[num].src}`
+
+    // if songs is in favourite highlight 
+    if(favourite.includes(num)){
+        currentFavourite.classList.add('active')
+    }else{
+        // if not favourite  remove active 
+        currentFavourite.classList.remove('active')
+    }
 }
 
+
+// lets add play pause next pray functionality 
+
+const playPauseBtn = document.querySelector('#playpause'),
+nextBtn = document.querySelector('#next'),
+prevBtn = document.querySelector('#prev')
+
+playPauseBtn.addEventListener("click",()=>{
+    if(playing){
+        // pause if already playing 
+        playPauseBtn.classList.replace('fa-pause', 'fa-play')
+        playing = false
+        audio.pause()
+
+        
+    }else{
+        // if not playing play
+        playPauseBtn.classList.replace('fa-play','fa-pause')
+        playing = true
+        audio.play()
+    }
+})
+
+function nextSong(){
+    // if current song is not last playing 
+    if(currentSong < songs.length -1){
+        // load the next song
+        currentSong++
+    }else{
+        // else if its last song then play first
+        currentSong =0
+    }
+    loadSong(currentSong)
+
+    if(playing){
+        audio.play()
+    }
+}
+
+nextBtn.addEventListener('click', nextSong)
+
+
+function prevSong() {  
+    // Check if currentSong is greater than 0  
+    if (currentSong > 0) {  
+        currentSong--; // Move to the previous song  
+    } else {  
+        currentSong = songs.length - 1; // Loop to the last song  
+    }  
+    
+    loadSong(currentSong); // Load the new song  
+
+    // If a song is currently playing, continue playing the new song  
+    if (playing) {  
+        audio.play(); // Ensure audio is set up correctly  
+    }  
+}  
+
+// Ensure prevBtn is correctly selected  
+prevBtn.addEventListener('click', prevSong);

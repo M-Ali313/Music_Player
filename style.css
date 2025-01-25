@@ -72,10 +72,11 @@ i.active{
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url(data/3.avif);
+    background-image: url("data/1.jpg");
     background-size: cover;
     background-position: center;
     transform-origin: 0% 0%;
+    transition: all 0.3s ease-in;
 }
 .container.active .cover-image{
     transform: scale(0.251);
