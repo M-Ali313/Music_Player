@@ -72,7 +72,7 @@ i.active{
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url(3.avif);
+    background-image: url(data/3.avif);
     background-size: cover;
     background-position: center;
     transform-origin: 0% 0%;
@@ -195,3 +195,21 @@ i.active{
     left: -44px;
     transform: scale(0.45);
 }
+.more-controls{
+    color: 15px;
+    font-size: 15px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 10px;
+    z-index: 20;
+    transition: all 0.3s;
+}
+.container.active .more-controls{
+    bottom: -60px;
+}
+
