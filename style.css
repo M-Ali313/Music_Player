@@ -214,3 +214,47 @@ i.active{
     bottom: -60px;
 }
 
+.bar{
+    position: absolute;
+    width: 320px;
+    height: 2px;
+    top: 580px;
+    left: 23px;
+    transform-origin: 0% 0%;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.container.active .bar{
+    top: 119px;
+    left: 126px;
+    color: 126px;
+    background-color: #111;
+    transform: scale(0.6875);
+}
+.bar .dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: -4px;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+.bar .time{
+    width: 100%;
+    position:absolute;
+    top: -20px;
+    left: 0;
+    user-select: none;
+    font-size: 10px;
+    display: flex;
+    align-items: contents;
+    justify-content: space-between;
+    transition: all 0.3s;
+
+}
